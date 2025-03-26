@@ -1,0 +1,14 @@
+body{
+    background-color: #1E1E1E;
+    font-family: Helvetica, serif;
+    color: white;
+    font-size: 48px;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: 70vh;}
