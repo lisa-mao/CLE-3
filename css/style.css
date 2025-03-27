@@ -24,6 +24,22 @@ header{
     margin: 0 30px;
 }
 
+.explImage{
+    width: 100%;
+    border-radius: 5px;
+
+    height: 400px;
+    object-fit: cover;
+}
+
+.center-container{
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
 header p{
     text-align: center;
 }

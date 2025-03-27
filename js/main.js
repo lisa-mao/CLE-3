@@ -6,7 +6,6 @@ let check = true
 function init(){
     field = document.getElementById('header')
     toggle = document.getElementById('toggle')
-    body = document.getElementById('body')
 
     toggle.addEventListener('click', backgroundViceVersa)
 }
@@ -19,6 +18,8 @@ function backgroundViceVersa(e){
             body.classList.add('extraClass')
             check = false
         } else {
-        body.classList.remove('extraClass')}
+        body.classList.remove('extraClass')
+        check = true
+        }
     }
 }

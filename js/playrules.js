@@ -32,6 +32,9 @@ section.innerHTML = ""
 }
 
 function backButton() {
+    if (arrayIndex === 0){
+        return;
+    }
 
     arrayIndex--
     console.log(arrayIndex)
@@ -39,6 +42,9 @@ function backButton() {
 }
 
 function continueButton() {
+    if (arrayIndex === 5){
+        return;
+    }
     arrayIndex++
     console.log(arrayIndex)
     updateText()
