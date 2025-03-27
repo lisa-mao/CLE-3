@@ -1,0 +1,28 @@
+.play-container {
+    margin: 200px 100px;
+}
+
+.play-section {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.play-button {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.button-playrules:hover {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+}
+
+.hidden {
+    display: none;
+}
+
