@@ -26,14 +26,14 @@ function init() {
 function updateSection() {
     section.innerHTML = ""
 
-    p.innerText = arrayOfRules[arrayIndex]
+    p.innerText = arrayOfRules[arrayIndex] //betere naam geven feedback
     img.src = `images/${arrayImg[arrayIndex]}.png`
     img.alt = `${arrayAlt[arrayIndex]}`
 
     section.append(p)
     section.append(img)
 
-    buttonC.addEventListener("click", continueButton)
+    buttonC.addEventListener("click", continueButton) //button beter noemen feedback
     buttonB.addEventListener("click", backButton)
 }
 
