@@ -56,11 +56,52 @@ button{
     position: relative;
 }
 
+a{
+    text-align: center;
+    background-color: #0a2463;
+}
+
+.play-container {
+    margin: 200px 100px;
+    text-align: center;
+}
+
+.play-section {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.play-button {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.button-playrules:hover {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+}
+
+.hidden {
+    display: none;
+}
+
+#text-field{
+    text-align: center;
+}
+
 @media(max-width: 480px){
     header div{
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+    header{
+        height: unset;
     }
 
     header h1{

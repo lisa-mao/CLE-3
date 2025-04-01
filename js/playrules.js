@@ -8,18 +8,23 @@ let arrayAlt = ["Één voet die uit de lijn is", "Een badminton met een bal ervo
 let buttonC
 let buttonB
 
+let main
 let section = document.querySelector('.play-section')
 let p
 let img
 
 //gives the variables buttonC- and B a value and creates a p element
 function init() {
+    main = document.querySelector('#field')
     buttonB = document.querySelector("#goBack")
     buttonC = document.querySelector("#continue")
-
     p = document.createElement("p")
     img = document.createElement("img")
+    p.id = 'text'
     updateSection()
+    getFromLocalStorage()
+
+    main.addEventListener('click', clickHandler)
 }
 
 //update the text after a button is pressed
@@ -49,10 +54,42 @@ function backButton() {
 
 //changes the number of the position(with arrayIndex) of an array item with plus
 function continueButton() {
-    if (arrayIndex === arrayOfRules.length - 1) {
+    if (arrayIndex === arrayOfRules.length - 1){
         return;
     }
-
     arrayIndex++
     updateSection()
+}
+
+function getFromLocalStorage(){
+    body = document.getElementById('body')
+    if (localStorage.getItem('backgroundSetting') === null){
+        return;
+    } body.classList.add('extraClass')
+}
+
+function clickHandler(e){
+    let target = e.target
+    if (target.nodeName === 'BUTTON' && target.id === 'voorlees'){
+        let text = document.getElementById('text')
+        textToSpeech(text.innerHTML)
+    }
+}
+
+function textToSpeech(text) {
+
+    console.log(text);
+    let utterance = new SpeechSynthesisUtterance(text);
+
+    if (speechSynthesis.getVoices().length === 0) {
+        speechSynthesis.addEventListener('voiceschanged', () => {
+            const voices = speechSynthesis.getVoices();
+            utterance.voice = voices[60];
+            speechSynthesis.speak(utterance);
+        });
+    } else {
+        const voices = speechSynthesis.getVoices();
+        utterance.voice = voices[60];
+        speechSynthesis.speak(utterance);
+    }
 }
