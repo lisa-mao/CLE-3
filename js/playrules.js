@@ -15,7 +15,7 @@ let img
 
 document.addEventListener("keyup", (event) => {
 
-    if (event.keyCode === 0x25 || buttonB.addEventListener("click", backButton)) {
+    if (event.keyCode === 0x25) {
         if (arrayIndex === 0) {
             return;
         }
@@ -25,7 +25,7 @@ document.addEventListener("keyup", (event) => {
 })
 document.addEventListener("keyup", (event) => {
 
-    if (event.keyCode === 0x27 || buttonC.addEventListener("click", continueButton)) {
+    if (event.keyCode === 0x27) {
         if (arrayIndex === arrayOfRules.length - 1) {
             return;
         }
@@ -38,9 +38,10 @@ document.addEventListener("keyup", (event) => {
 //gives the variables buttonC- and B a value and creates a p element
 function init() {
     main = document.querySelector('#field')
-    buttonB = document.querySelector(".goBack")
-    buttonC = document.querySelector(".continue")
+    buttonB = document.querySelector("#goBack")
+    buttonC = document.querySelector("#continue")
 
+    console.log(buttonB)
     p = document.createElement("p")
     img = document.createElement("img")
     p.id = 'text'
@@ -48,6 +49,8 @@ function init() {
     getFromLocalStorage()
 
     main.addEventListener('click', clickHandler)
+    buttonC.addEventListener("click", continueButton)
+    buttonB.addEventListener("click", backButton)
 }
 
 
