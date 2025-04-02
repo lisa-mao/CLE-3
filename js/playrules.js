@@ -15,7 +15,7 @@ let img
 
 document.addEventListener("keyup", (event) => {
 
-    if (event.keyCode === 0x25) {
+    if (event.keyCode === 0x25 || buttonB.addEventListener("click", backButton)) {
         if (arrayIndex === 0) {
             return;
         }
@@ -25,7 +25,7 @@ document.addEventListener("keyup", (event) => {
 })
 document.addEventListener("keyup", (event) => {
 
-    if (event.keyCode === 0x27) {
+    if (event.keyCode === 0x27 || buttonC.addEventListener("click", continueButton)) {
         if (arrayIndex === arrayOfRules.length - 1) {
             return;
         }
@@ -34,8 +34,6 @@ document.addEventListener("keyup", (event) => {
     }
 })
 
-buttonC.addEventListener("click", continueButton)
-buttonB.addEventListener("click", backButton)
 
 //gives the variables buttonC- and B a value and creates a p element
 function init() {
