@@ -13,6 +13,30 @@ const section = document.querySelector('.play-section')
 let p
 let img
 
+document.addEventListener("keyup", (event) => {
+
+    if (event.keyCode === 0x25) {
+        if (arrayIndex === 0) {
+            return;
+        }
+        arrayIndex--
+        updateSection()
+    }
+})
+document.addEventListener("keyup", (event) => {
+
+    if (event.keyCode === 0x27) {
+        if (arrayIndex === arrayOfRules.length - 1) {
+            return;
+        }
+        arrayIndex++
+        updateSection()
+    }
+})
+
+buttonC.addEventListener("click", continueButton)
+buttonB.addEventListener("click", backButton)
+
 //gives the variables buttonC- and B a value and creates a p element
 function init() {
     main = document.querySelector('#field')
@@ -28,6 +52,7 @@ function init() {
     main.addEventListener('click', clickHandler)
 }
 
+
 //update the text after a button is pressed
 function updateSection() {
     section.innerHTML = ""  // Clear previous content
@@ -40,9 +65,10 @@ function updateSection() {
     section.append(img)
 
     // Add event listeners for buttons
-    buttonC.addEventListener("click", continueButton)
-    buttonB.addEventListener("click", backButton)
+
+
 }
+
 
 //changes the number of the position(with arrayIndex) of an array item with minus
 function backButton() {
@@ -50,13 +76,14 @@ function backButton() {
         return;
     }
 
+
     arrayIndex--
     updateSection()
 }
 
 //changes the number of the position(with arrayIndex) of an array item with plus
 function continueButton() {
-    if (arrayIndex === arrayOfRules.length - 1){
+    if (arrayIndex === arrayOfRules.length - 1) {
         return;
     }
     arrayIndex++
@@ -122,16 +149,17 @@ const removeMagnifiyingGlass = (event) => {
 magnifyingGlass.addEventListener("dblclick", removeMagnifiyingGlass);
 
 
-function getFromLocalStorage(){
+function getFromLocalStorage() {
     body = document.getElementById('body')
-    if (localStorage.getItem('backgroundSetting') === null){
+    if (localStorage.getItem('backgroundSetting') === null) {
         return;
-    } body.classList.add('extraClass')
+    }
+    body.classList.add('extraClass')
 }
 
-function clickHandler(e){
+function clickHandler(e) {
     let target = e.target
-    if (target.nodeName === 'BUTTON' && target.id === 'voorlees'){
+    if (target.nodeName === 'BUTTON' && target.id === 'voorlees') {
         let text = document.getElementById('text')
         textToSpeech(text.innerHTML)
     }
