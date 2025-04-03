@@ -1,0 +1,43 @@
+//randomplayer
+//a is gedrukt en de circuit schakelt tussen 2 helfden
+//er wordt elke x random een helft gekozen
+
+let pixel = 0;
+let playerOne = [Colors.Blue, Colors.Blue, Colors.Blue, Colors.Blue, Colors.Blue];
+let playerTwo = [Colors.Black, Colors.Black, Colors.Black, Colors.Black, Colors.Black, Colors.Orange, Colors.Orange, Colors.Orange, Colors.Orange, Colors.Orange];
+
+//animatie
+light.setPixelColor(pixel, Colors.White)
+function ledAnimation() {
+
+    for (let pixel = 0; pixel < 10; pixel++) {
+
+        light.setPixelColor(pixel, Colors.Black)
+
+        loops.pause(100)
+
+        if (pixel > 9) {
+            pixel = 0
+        }
+        light.setPixelColor(pixel, Colors.White)
+    }
+    light.clear();
+}
+
+//speler blauw of rood wordt gekozen
+function choosePlayer() {
+
+    let randomPlayer = Math.random() < 0.5 ? playerOne : playerTwo; // speler wordt random gekozen
+
+    for (let i = 0; i < randomPlayer.length; i++) {
+        light.setPixelColor(i, randomPlayer[i]);
+    }
+}
+
+input.buttonA.onEvent(ButtonEvent.Click, function () {
+    //als animatie klaar is wordt de speler gekozen
+    ledAnimation();
+    if (ledAnimation) {
+        choosePlayer();
+    }
+});
