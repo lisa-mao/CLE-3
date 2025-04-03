@@ -1,9 +1,10 @@
 window.addEventListener("load", init)
 
-const arrayOfRules = ["1. Als je uit het vak gaat stopt de ronde en gaat de beurt over naar de tegenstander", "2. Je moet de bal in twéé slagen slaan", "3. Het spel bestaat uit 3 rondes van elk 5 min", "4. Het startende partij wordt bepaald aan de hand van een willekeurige selector", "5. de bal mag niet uit het veld komen", "6. Het spel mag worden aangepast tot de gewenste moeilijkheidsgraad"];
+let arrayOfRules = ["1. Het spel is 1 op 1", "2. De eerste speler wordt willekeurig gekozen door een systeem", "3. Elk speler krijgt de kleur oranje of blauw aangewezen", "4. Het spel bestaat uit 3 rondes van 5 minuten", "5. Als een speler 3 punten heeft, gaat het spel naar de volgende ronde", "6. Bij scoren wordt de bal gegeven aan de tegenstander door de coach om te serveren",
+    "7. Er is altijd een coach aanwezig die checkt voor overtredingen en het spel reset", "8. De speler moet binnen het speelveld blijven", "9. De speler moet binnen twee slagen de bal aan de kant van de tegenstander krijgen", "10. Wanneer de speler niet de bal in twee slagen de bal aan de kant van de tegenstander krijgt, krijgt de tegenstander een punt en wordt de beurt omgewisseld"]
 let arrayIndex = 0
-const arrayImg = ["voetUit", "tweeSlagen", "vijfRondes", "willekeurig", "balUit", "moeilijkheidsgraad"]
-const arrayAlt = ["Één voet die uit de lijn is", "Een badminton met een bal ervoor", "Drie rondjes met elk een 5 erin", "Een rondje met 10 lichtjes, 5 links en 5 rights"]
+const arrayImg = ["2spelers", "selector", "kleuren", "rondes", "puntenRondes", "bijPunt", "coach", "buitenVeld", "slagen", "missen"]
+const arrayAlt = ["twee spelers voor het spel", "Een rondje met 10 lichtjes, 5 links en 5 rechts", "2 mensen met de kleur oranje en blauw", "1 uit de drie en drie grijzen bollen met elk 5 minuten eronder", "2 uit de 3 rondes 1 bol gekleured met nummer 3 erin de rest grijs", "coach pakt de bal en geeft hem aan de tegenstander", "coach", "been stapt buiten de lijn met een rooie kruis erbij", "racket raakt de bal binnen twee slagen", "racket mist de bal binnen twee slagen"]
 
 let buttonC
 let buttonB
@@ -53,7 +54,6 @@ function init() {
     buttonB.addEventListener("click", backButton)
 }
 
-
 //update the text after a button is pressed
 function updateSection() {
     section.innerHTML = ""  // Clear previous content
@@ -70,13 +70,11 @@ function updateSection() {
 
 }
 
-
 //changes the number of the position(with arrayIndex) of an array item with minus
 function backButton() {
     if (arrayIndex === 0) {
         return;
     }
-
 
     arrayIndex--
     updateSection()
