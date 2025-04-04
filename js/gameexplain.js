@@ -2,10 +2,11 @@ window.addEventListener('load', init);
 
 let field
 let body
+let check
 function init(){
     field = document.getElementById('body')
-    makeMainItems()
     getFromLocalStorage()
+    makeMainItems()
     field.addEventListener('click', clickHandler)
 }
 function makeMainItems(){
@@ -32,10 +33,17 @@ function makeMainItems(){
     p.id = 'text'
     div.appendChild(p)
 
-    image.src = 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png'
-    image.alt = 'placeholder'
-    image.classList.add('explImage')
-    div.appendChild(image)
+    if (check === true) {
+        image.src = 'images/veldBlack.png'
+        image.alt = 'placeholder'
+        image.classList.add('explImage')
+        div.appendChild(image)
+    } else {
+        image.src = 'images/veld.png'
+        image.alt = 'placeholder'
+        image.classList.add('explImage')
+        div.appendChild(image)
+    }
 
     button1.innerText = 'Terug'
     button2.innerText = 'Naar spelregels'
@@ -52,8 +60,10 @@ function makeMainItems(){
 function getFromLocalStorage(){
     body = document.getElementById('body')
     if (localStorage.getItem('backgroundSetting') === null){
+        check = true
         return;
     } body.classList.add('extraClass')
+    check = false
 }
 
 function clickHandler(e){
