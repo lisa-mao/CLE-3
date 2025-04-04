@@ -14,27 +14,6 @@ const section = document.querySelector('.play-section')
 let p
 let img
 
-document.addEventListener("keyup", (event) => {
-
-    if (event.keyCode === 0x25) {
-        if (arrayIndex === 0) {
-            return;
-        }
-        arrayIndex--
-        updateSection()
-    }
-})
-document.addEventListener("keyup", (event) => {
-
-    if (event.keyCode === 0x27) {
-        if (arrayIndex === arrayOfRules.length - 1) {
-            return;
-        }
-        arrayIndex++
-        updateSection()
-    }
-})
-
 
 //gives the variables buttonC- and B a value and creates a p element
 function init() {
@@ -50,8 +29,31 @@ function init() {
     getFromLocalStorage()
 
     main.addEventListener('click', clickHandler)
+
     buttonC.addEventListener("click", continueButton)
     buttonB.addEventListener("click", backButton)
+
+    //makes arrowkeys functional for continue & back
+    document.addEventListener("keyup", (event) => {
+
+        if (event.keyCode === 0x25) {
+            if (arrayIndex === 0) {
+                return;
+            }
+            arrayIndex--
+            updateSection()
+        }
+    })
+    document.addEventListener("keyup", (event) => {
+
+        if (event.keyCode === 0x27) {
+            if (arrayIndex === arrayOfRules.length - 1) {
+                return;
+            }
+            arrayIndex++
+            updateSection()
+        }
+    })
 }
 
 //update the text after a button is pressed
@@ -64,9 +66,6 @@ function updateSection() {
 
     section.append(p)
     section.append(img)
-
-    // Add event listeners for buttons
-
 
 }
 
@@ -160,6 +159,10 @@ function clickHandler(e) {
     let target = e.target
     if (target.nodeName === 'BUTTON' && target.id === 'voorlees') {
         let text = document.getElementById('text')
+        textToSpeech(text.innerHTML)
+    }
+    if (target.nodeName === 'BUTTON' && target.id === 'magnify') {
+        let text = document.getElementById('magtext')
         textToSpeech(text.innerHTML)
     }
 }

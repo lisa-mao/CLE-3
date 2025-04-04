@@ -11,12 +11,21 @@ body {
     font-size: 18px;
 }
 
+.extraClass{
+    background-color: white;
+    color: black;
+}
+
 .wrapper {
-    max-width: 100vw;
+    max-width: 90vw;
     max-height: 100vh;
-    padding: 3%;
+    padding: 20px 0 3% 0 ;
     background-color: #1E1E1E;
     overflow-block: hidden;
+}
+
+#field {
+    padding-left: 70px;
 }
 
 .handle {
@@ -68,13 +77,25 @@ body {
 
 #magnify {
     font-size: 2rem;
-    padding: 3% 5% 3%;
+    padding: 20px;
     border-radius: 10px;
     cursor: pointer;
     align-content: center;
     justify-content: center;
     flex-direction: row;
     gap: 20px;
+
+}
+
+.magnify-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.magnify-speech {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
 }
 
@@ -115,6 +136,11 @@ html {
     border-radius: 10px;
 }
 
+.play-button:hover {
+    color: white;
+    background-color: #1E1E1E;
+}
+
 .button-playrules:hover {
     background-color: #1E1E1E;
     color: #FFFFFF;
@@ -125,7 +151,7 @@ html {
     justify-content: center;
     flex-direction: row;
     gap: 20px;
-    padding: 3% 5% 3%;
+    padding: 2% 5% 3%;
     font-size: xx-large;
     border-radius: 10px;
 }
