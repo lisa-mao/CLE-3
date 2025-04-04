@@ -3,7 +3,8 @@ window.addEventListener("load", init)
 let arrayOfRules = ["1. Het spel is 1 op 1", "2. De eerste speler wordt willekeurig gekozen door een systeem", "3. Elk speler krijgt de kleur oranje of blauw aangewezen", "4. Het spel bestaat uit 3 rondes van 5 minuten", "5. Als een speler 3 punten heeft, gaat het spel naar de volgende ronde", "6. Bij scoren wordt de bal gegeven aan de tegenstander door de coach om te serveren",
     "7. Er is altijd een coach aanwezig die checkt voor overtredingen en het spel reset", "8. De speler moet binnen het speelveld blijven", "9. De speler moet binnen twee slagen de bal aan de kant van de tegenstander krijgen", "10. Wanneer de speler niet de bal in twee slagen de bal aan de kant van de tegenstander krijgt, krijgt de tegenstander een punt en wordt de beurt omgewisseld"]
 let arrayIndex = 0
-const arrayImg = ["2spelers", "selector", "kleuren", "rondes", "puntenRondes", "bijPunt", "coach", "buitenVeld", "slagen", "missen"]
+const arrayImg = ["2speler", "selectors", "kleur", "rond", "puntenRond", "bijPunten", "coaches", "buitenVelden", "slag", "mis"]
+const arrayImgDarkmode = ["2spelersBlack", "selectorBlack", "kleurenBlack", "rondesBlack", "puntenRondesBlack", "bijPuntBlack", "coachBlack", "buitenVeldBlack", "slagenBlack", "missenBlack"]
 const arrayAlt = ["twee spelers voor het spel", "Een rondje met 10 lichtjes, 5 links en 5 rechts", "2 mensen met de kleur oranje en blauw", "1 uit de drie en drie grijzen bollen met elk 5 minuten eronder", "2 uit de 3 rondes 1 bol gekleured met nummer 3 erin de rest grijs", "coach pakt de bal en geeft hem aan de tegenstander", "coach", "been stapt buiten de lijn met een rooie kruis erbij", "racket raakt de bal binnen twee slagen", "racket mist de bal binnen twee slagen"]
 
 let buttonC
@@ -17,8 +18,7 @@ let main
 const section = document.querySelector('.play-section')
 let p
 let img
-
-
+let check
 
 //gives the variables buttonC- and B a value and creates a p element
 function init() {
@@ -37,8 +37,8 @@ function init() {
     img = document.createElement("img")
     img.classList.add("playrules-img")
     p.id = 'text'
-    updateSection()
     getFromLocalStorage()
+    updateSection()
 
     main.addEventListener('click', clickHandler)
 
@@ -71,14 +71,21 @@ function init() {
 //update the text after a button is pressed
 function updateSection() {
     section.innerHTML = ""  // Clear previous content
+    if (check === true){
+        p.innerText = arrayOfRules[arrayIndex]
+        img.src = `images/${arrayImgDarkmode[arrayIndex]}.png`
+        img.alt = arrayAlt[arrayIndex]
+        section.append(p)
+        section.append(img)
+        return
+    } else {
+        p.innerText = arrayOfRules[arrayIndex]
+        img.src = `images/${arrayImg[arrayIndex]}.png`
+        img.alt = arrayAlt[arrayIndex]
 
-    p.innerText = arrayOfRules[arrayIndex]
-    img.src = `images/${arrayImg[arrayIndex]}.png`
-    img.alt = arrayAlt[arrayIndex]
-
-    section.append(p)
-    section.append(img)
-
+        section.append(p)
+        section.append(img)
+    }
 }
 //changes button appearance based off of screenwidth and height(mobile or not)
 function detectMOB() {
@@ -132,8 +139,6 @@ const addMagnifyingGlass = () => {
     bodyClone.classList.add("body-clone");
     bodyClone.style.top = "0px";
     bodyClone.style.left = "0px";
-
-
     magnifyingGlass.append(bodyClone);
     document.body.append(handle);
 };
@@ -168,9 +173,11 @@ magnifyingGlass.addEventListener("dblclick", removeMagnifiyingGlass);
 function getFromLocalStorage() {
     body = document.getElementById('body')
     if (localStorage.getItem('backgroundSetting') === null) {
+        check = true
         return;
     }
     body.classList.add('extraClass')
+    check = false
 }
 
 function clickHandler(e) {
