@@ -94,6 +94,10 @@ a{
     text-align: center;
 }
 
+#body{
+    padding: 40px 20px;
+}
+
 @media(max-width: 480px){
     header div{
         display: flex;
