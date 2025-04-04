@@ -125,8 +125,8 @@ html {
     display: flex;
     align-content: center;
     justify-content: center;
-    flex-direction: row;
-    gap: 20px;
+    flex-direction: column;
+    gap: 50px;
     padding: 3% 5% 0.2%;
     font-size: xx-large;
     border-radius: 10px;
@@ -134,6 +134,18 @@ html {
 
 .play-button:hover {
     color: white;
+}
+
+.backAndContinueButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px
+}
+
+.homeButton a {
+    text-decoration: none;
+
 }
 
 .homeButton:hover {
@@ -168,33 +180,6 @@ html {
 img {
     width: 650px;
     height: 450px;
-}
-
-@media(max-width: 481px){
-    .magnify-speech {
-        flex-direction: column;
-    }
-
-    .playrules-img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: scale-down;
-    }
-
-    #field {
-        padding: 0 10px 0 25px;
-    }
-
-    #magtext {
-        display: flex;
-        text-align: center;
-    }
-
-    .play-button {
-        flex-direction: column;
-    }
-
-
 }
 
 
@@ -299,7 +284,7 @@ a{
     padding: 40px 20px;
 }
 
-@media(max-width: 480px){
+@media(max-width: 481px){
     header div{
         display: flex;
         flex-direction: column;
@@ -312,4 +297,58 @@ a{
     header h1{
         font-size: 4.5rem;
     }
+
+    .magnify-speech {
+        flex-direction: column;
+    }
+
+    .playrules-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: scale-down;
+    }
+
+    #field {
+        padding: 0 10px 0 25px;
+    }
+
+    #magtext {
+        display: flex;
+        text-align: center;
+    }
+
+    .play-button {
+        flex-direction: column;
+    }
+
+    .magnify-speech {
+        flex-direction: column;
+    }
+
+    .playrules-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: scale-down;
+    }
+
+    #field {
+        padding: 0 10px 0 25px;
+    }
+
+    #magtext {
+        display: flex;
+        text-align: center;
+    }
+
+    .play-button {
+        flex-direction: column;
+    }
+
+    .homeButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
 }
