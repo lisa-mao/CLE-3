@@ -50,7 +50,7 @@ function init() {
 
         if (event.keyCode === 0x25) {
             if (arrayIndex === 0) {
-                return;
+                return
             }
             arrayIndex--
             updateSection()
@@ -60,7 +60,7 @@ function init() {
 
         if (event.keyCode === 0x27) {
             if (arrayIndex === arrayOfRules.length - 1) {
-                return;
+                return
             }
             arrayIndex++
             updateSection()

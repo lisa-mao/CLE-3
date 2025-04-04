@@ -1,3 +1,203 @@
+:root {
+    --scale: 5;
+    --size: 200px;
+    --scrollbar-width: 36px;
+    --handle-background: url("https://www.svgrepo.com/show/263197/magnifying-glass-search.svg");
+    background-color: #1E1E1E;
+}
+
+.extraClass{
+    background-color: white;
+    color: black;
+}
+
+.wrapper {
+    max-width: 90vw;
+    padding: 20px 0 3% 0 ;
+    overflow-block: hidden;
+
+}
+
+#field {
+    padding-left: 70px;
+}
+
+.handle {
+    position: absolute;
+    height: calc(var(--size) * 1.9);
+    width: calc(var(--size) * 1.9);
+    background: var(--handle-background);
+    background-size: contain;
+    filter: drop-shadow(-2px -2px 10px rgba(0, 0, 0, 0.5));
+}
+
+.magnifying-glass {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    height: var(--size);
+    width: var(--size);
+    border: solid 3px black;
+    background: radial-gradient(#f5fcfc 45%, gray);
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.magnifying-glass::after {
+    display: block;
+    position: relative;
+    content: "";
+    top: calc(2 * var(--size) / 3);
+    left: calc(2 * var(--size) / 3);
+    height: 15px;
+    width: 30px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 10;
+    transform: rotate(-45deg);
+    opacity: 70%;
+}
+
+#magtext {
+    font-size: 21px;
+}
+.body-clone {
+    position: absolute;
+    margin-left: 8vw;
+    padding: inherit;
+    height: 100vh;
+    width: calc(100vw - var(--scrollbar-width));
+    transform: scale(var(--scale));
+
+}
+
+#magnify {
+    font-size: 2rem;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+
+}
+
+.magnify-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.magnify-speech {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+#magnify:hover {
+    color: white;
+    background-color: #1E1E1E;
+    box-shadow: none;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+.play-container {
+    margin: 200px 100px;
+    width: 80vw;
+    height: 80vh;
+}
+
+.play-section {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-size: xxx-large;
+}
+
+.play-button {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+    padding: 3% 5% 0.2%;
+    font-size: xx-large;
+    border-radius: 10px;
+}
+
+.play-button:hover {
+    color: white;
+}
+
+.homeButton:hover {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+}
+.button-playrules:hover {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+}
+
+#voorlees {
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+    padding: 2% 5% 3%;
+    font-size: xx-large;
+    border-radius: 10px;
+}
+
+#voorlees:hover {
+    color: white;
+    background-color: #1E1E1E;
+    box-shadow: none;
+}
+
+.hidden {
+    display: none;
+}
+
+img {
+    width: 650px;
+    height: 450px;
+}
+
+@media(max-width: 481px){
+    .magnify-speech {
+        flex-direction: column;
+    }
+
+    .playrules-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: scale-down;
+    }
+
+    #field {
+        padding: 0 10px 0 25px;
+    }
+
+    #magtext {
+        display: flex;
+        text-align: center;
+    }
+
+    .play-button {
+        flex-direction: column;
+    }
+
+
+}
+
+
 body{
     background-color: #1E1E1E;
     font-family: Helvetica, serif;
