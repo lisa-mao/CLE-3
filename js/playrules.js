@@ -8,11 +8,16 @@ const arrayAlt = ["twee spelers voor het spel", "Een rondje met 10 lichtjes, 5 l
 
 let buttonC
 let buttonB
+let buttonContinueMobile
+let buttonBackMobile
+
+const downButtons = document.querySelector(".mobileButtons")
 
 let main
 const section = document.querySelector('.play-section')
 let p
 let img
+
 
 
 //gives the variables buttonC- and B a value and creates a p element
@@ -21,9 +26,16 @@ function init() {
     buttonB = document.querySelector("#goBack")
     buttonC = document.querySelector("#continue")
 
+    //changes button accordingly to the width of the screen
+    if (detectMOB()) {
+        buttonC.innerHTML = ">"
+        buttonB.innerHTML = "<"
+    }
+
     console.log(buttonB)
     p = document.createElement("p")
     img = document.createElement("img")
+    img.classList.add("playrules-img")
     p.id = 'text'
     updateSection()
     getFromLocalStorage()
@@ -67,6 +79,10 @@ function updateSection() {
     section.append(p)
     section.append(img)
 
+}
+//changes button appearance based off of screenwidth and height(mobile or not)
+function detectMOB() {
+    return ( ( window.innerWidth <= 481 ) && (window.innerHeight <= 824));
 }
 
 //changes the number of the position(with arrayIndex) of an array item with minus
@@ -116,6 +132,8 @@ const addMagnifyingGlass = () => {
     bodyClone.classList.add("body-clone");
     bodyClone.style.top = "0px";
     bodyClone.style.left = "0px";
+
+
     magnifyingGlass.append(bodyClone);
     document.body.append(handle);
 };
