@@ -2,10 +2,9 @@ body{
     background-color: #1E1E1E;
     font-family: Helvetica, serif;
     color: white;
-    /*font-size: 3rem;*/
+    font-size: 3rem;
     margin: 0;
 
-    font-size: 18px;
 }
 .extraClass{
     background-color: #EAEAEA;
