@@ -295,10 +295,17 @@ a{
     }
 
     header h1{
-        font-size: 4.5rem;
+        font-size: 4rem;
+    }
+
+    .explImage{
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: scale-down;
     }
 
     .magnify-speech {
+        width: 100%;
         flex-direction: column;
     }
 
